@@ -12,7 +12,7 @@ PGraphics distance_filter(PGraphics img){
       }else{
         float depth = blue(img.pixels[index]);
         
-        img.pixels[index] = depthToColour(depth, 0);
+        img.pixels[index] = depthToColour(depth, mode);
       }
     }
   }
