@@ -1,16 +1,29 @@
 import java.util.*; 
 
-String distant_text = "hello";
-String close_text = "there";
+/* How to use
+1. Customise using parameters here
+2. Launch
+3. Use mouse and drag to re-adjust
+4. Use key S to save image.
+*/
+
+String distant_text = "great project";
+String close_text = "not useful";
 
 float noise_scale = 200;
 int font_size = 200;
 
 color low_freq_fill = color(30);
-int blur_radius = 10;
-int high_freq_opacity = 35;
+int blur_radius = 12;
+int high_freq_opacity = 30;
+
+// 0, 1 or 2
+int mode = 0;
 
 PGraphics highText;
+
+int xshift = 0;
+int yshift = 0;
 
 PGraphics create_image(String close_text){
   PGraphics img = createGraphics(1200, 400);
@@ -38,7 +51,7 @@ void drawScreen(){
   
   // Add highText to composition
   tint(255, high_freq_opacity);
-  image(highText, 30, 200);
+  image(highText, xshift, 200+yshift);
 }
 
 void setup(){
@@ -55,6 +68,9 @@ void setup(){
   highText = distance_filter(highText);
   
   drawScreen();
+}
+
+void draw(){
 }
 
 void addNoise(float noise_scale){
